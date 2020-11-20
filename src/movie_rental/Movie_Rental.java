@@ -7,6 +7,7 @@ package movie_rental;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -62,12 +63,39 @@ public class Movie_Rental {
         }
         
         //code for writing to database
-        /*System.out.println("Please enter ID");
+        System.out.println("Please enter ID");
         Payment_ID = input.nextInt();
         input.nextLine();
-        System.out.println("Enter Discount");*/
+        System.out.println("Enter Discount");
+        Discount = input.nextFloat();
+        input.nextLine();
+        
+        query = "insert into cash(Payment_ID, Discount)values(?, ?)";
         
         
+        try{
+            myconShop = DriverManager.getConnection(url, user, password);
+            PreparedStatement st = myconShop.prepareStatement(query);
+            
+            st.setInt(1, Payment_ID);
+            st.setFloat(2, Discount);
+            
+            //update values in table
+            st.executeUpdate();
+        }
+        catch(SQLException e){
+            e.printStackTrace();//This shows useful details about errors incase an error occurs such as the line number 
+        }
+        
+        
+        //code for deleteing from database
+        /*query = "Delete from cash";
+        try{
+            
+        }
+        catch(SQLException e){
+            
+        }*/
         
         
         
