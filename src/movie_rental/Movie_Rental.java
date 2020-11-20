@@ -18,6 +18,7 @@ public class Movie_Rental {
         // TODO code application logic
         
         System.out.print("We should start wroking naw");
+        System.out.println("I agree");
         
     }
     
