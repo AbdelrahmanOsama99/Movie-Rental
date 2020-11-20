@@ -36,15 +36,21 @@ public class Movie_Rental {
         
         
         
-        //Codes for reading data from database
-        // try catch block
+        //Codes for reading data from database  
+        String query="Select * from cash";
         
-        String query="Select * from ";
+        // try catch block
         try{
             
           //making the connection
           myconShop = DriverManager.getConnection(url, user, password);
-            
+          mystatShop =  myconShop.createStatement();
+          myresShop = mystatShop.executeQuery(query);
+          
+          while(myresShop.next()){
+              int Payment_ID = myresShop.getInt(1);
+              System.out.println("\t"+Payment_ID);
+          }
         }
         catch(SQLException e){
             e.printStackTrace();
