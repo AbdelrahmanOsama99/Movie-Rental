@@ -17,7 +17,8 @@ public class Movie_Rental {
     public static void main(String[] args) {
         // TODO code application logic
         
-        System.out.print("hamada");
+        System.out.print("We should start wroking naw");
+        
     }
     
 }
