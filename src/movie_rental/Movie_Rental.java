@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package movie_rental;
-
+/*
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,9 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
-
+*/
 /**
- *
+ **
  * @author Boda
  */
 public class Movie_Rental {
@@ -25,7 +25,7 @@ public class Movie_Rental {
     public static void main(String[] args) {
         // TODO code application logic
         
-        Connection myconShop= null; //To connect to database
+        /*Connection myconShop= null; //To connect to database
         Statement mystatShop= null; //setting the query 
         ResultSet myresShop= null; //preservering the result after applying the query
         
@@ -35,7 +35,7 @@ public class Movie_Rental {
         String user = "Abdo";
         String password="Abdo123";
         
-        
+        //initialization
         int Payment_ID;
         float Discount;
         Scanner input = new Scanner(System.in);
@@ -100,5 +100,5 @@ public class Movie_Rental {
         
         
     }
-    
+    //Employee emp1= Employee*/
 }
