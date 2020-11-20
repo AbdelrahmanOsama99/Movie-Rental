@@ -5,11 +5,36 @@
  */
 package movie_rental;
 
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import javax.swing.JFrame;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Boda
  */
 public class MovieLogin extends javax.swing.JFrame {
+    Connection myconShop= null; //To connect to database
+    Statement mystatShop= null; //setting the query 
+    ResultSet myresShop= null; //preservering the result after applying the query
+    
+    
+    
+        String url= "jdbc:sqlserver://LAPTOP-9B39BBIR:1433;databaseName=MOVIE_RENTAL";
+        String user = "Abdo";
+        String password="Abdo123";
+    
+    
+    private JFrame frame;
 
     /**
      * Creates new form MovieLogin
@@ -34,7 +59,21 @@ public class MovieLogin extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
+        MgUserText1 = new javax.swing.JTextField();
+        MgPassLabel1 = new javax.swing.JLabel();
+        MgPassText1 = new javax.swing.JPasswordField();
+        MgUserLabel1 = new javax.swing.JLabel();
+        LoginButton1 = new javax.swing.JToggleButton();
+        ExitButton1 = new javax.swing.JToggleButton();
+        CancelButton2 = new javax.swing.JToggleButton();
         jPanel9 = new javax.swing.JPanel();
+        MgUserText = new javax.swing.JTextField();
+        MgPassLabel = new javax.swing.JLabel();
+        MgPassText = new javax.swing.JPasswordField();
+        MgUserLabel = new javax.swing.JLabel();
+        CancelButton = new javax.swing.JToggleButton();
+        ExitButton = new javax.swing.JToggleButton();
+        LoginButton = new javax.swing.JToggleButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -99,30 +138,156 @@ public class MovieLogin extends javax.swing.JFrame {
 
         jPanel8.setLayout(new java.awt.CardLayout());
 
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Sales Man Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 18))); // NOI18N
+
+        MgUserText1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        MgPassLabel1.setText("Password:");
+        MgPassLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        MgPassText1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        MgUserLabel1.setText("Username:");
+        MgUserLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        LoginButton1.setText("Login");
+        LoginButton1.setBorder(null);
+        LoginButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginButton1ActionPerformed(evt);
+            }
+        });
+
+        ExitButton1.setText("Exit");
+        ExitButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitButton1ActionPerformed(evt);
+            }
+        });
+
+        CancelButton2.setText("Cancel");
+        CancelButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 619, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(MgUserLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .addComponent(LoginButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MgPassLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(MgPassText1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MgUserText1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(CancelButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(126, 126, 126)
+                        .addComponent(ExitButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(42, 42, 42))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 234, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MgUserLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(MgUserText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MgPassText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MgPassLabel1))
+                .addGap(79, 79, 79)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ExitButton1)
+                    .addComponent(LoginButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CancelButton2))
+                .addContainerGap())
         );
 
         jPanel8.add(jPanel10, "card3");
 
-        jPanel9.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Manager Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 18))); // NOI18N
+        jPanel9.setForeground(new java.awt.Color(240, 240, 240));
+
+        MgUserText.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        MgPassLabel.setText("Password:");
+        MgPassLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        MgPassText.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        MgUserLabel.setText("Username:");
+        MgUserLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        CancelButton.setText("Cancel");
+        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButtonActionPerformed(evt);
+            }
+        });
+
+        ExitButton.setText("Exit");
+        ExitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitButtonActionPerformed(evt);
+            }
+        });
+
+        LoginButton.setText("Login");
+        LoginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 619, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(MgUserLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                        .addComponent(MgPassLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(MgPassText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(MgUserText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MgUserLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(MgUserText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MgPassText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MgPassLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CancelButton)
+                    .addComponent(ExitButton)
+                    .addComponent(LoginButton))
+                .addContainerGap())
         );
 
         jPanel8.add(jPanel9, "card2");
@@ -161,13 +326,13 @@ public class MovieLogin extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(Button1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
+                        .addGap(41, 41, 41)
                         .addComponent(Button2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 810, 390));
@@ -264,6 +429,106 @@ public class MovieLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mouseexited
 
+    private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
+        // TODO add your handling code here:
+        String Username = MgUserText.getText();
+        String Password = MgPassText.getText();
+        
+        
+        
+        try{
+            int log = 1;
+            myconShop = DriverManager.getConnection(url, user, password);
+            mystatShop = myconShop.createStatement();
+            myresShop = mystatShop.executeQuery("Select * from login_info");
+            
+            while(myresShop.next()){
+                if(myresShop.getString(1).equals(Username) && myresShop.getString(2).equals(Password) && myresShop.getInt(1)<5010){
+                    log = 0;
+                    break;
+                }
+            }
+            if(log==0)
+                closeMe();
+            else{
+                JOptionPane.showMessageDialog(null, "Connection Failed", "Login System", JOptionPane.ERROR_MESSAGE);
+                MgUserText.setText("");
+                MgPassText.setText("");
+                MgUserText.grabFocus();
+            }
+        }
+        catch (SQLException ex){
+            Logger.getLogger(MovieLogin.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }//GEN-LAST:event_LoginButtonActionPerformed
+
+    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
+        // TODO add your handling code here:
+        MgUserText.setText("");
+        MgPassText.setText("");
+        MgUserText.grabFocus();        
+    }//GEN-LAST:event_CancelButtonActionPerformed
+
+    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
+        // TODO add your handling code here:
+        frame = new JFrame("Exit");
+        if(JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit?", "A&Y Inventory Management System", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_ExitButtonActionPerformed
+
+    private void LoginButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButton1ActionPerformed
+        // TODO add your handling code here:
+        String Username = MgUserText1.getText();
+        String Password = MgPassText1.getText();
+        
+        
+        
+        try{
+            int log = 1;
+            myconShop = DriverManager.getConnection(url, user, password);
+            mystatShop = myconShop.createStatement();
+            myresShop = mystatShop.executeQuery("Select * from login_info");
+            
+            while(myresShop.next()){
+                if(myresShop.getString(1).equals(Username) && myresShop.getString(2).equals(Password) && myresShop.getInt(1)>5010){
+                    log = 0;
+                    break;
+                }
+            }
+            if(log==0)
+                closeMe();
+            else{
+                JOptionPane.showMessageDialog(null, "Connection Failed", "Login System", JOptionPane.ERROR_MESSAGE);
+                MgUserText1.setText("");
+                MgPassText1.setText("");
+                MgUserText1.grabFocus();
+            }
+        }
+        catch (SQLException ex){
+            Logger.getLogger(MovieLogin.class.getName()).log(Level.SEVERE,null,ex);
+        }        
+
+    }//GEN-LAST:event_LoginButton1ActionPerformed
+
+    private void CancelButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButton2ActionPerformed
+        // TODO add your handling code here:
+        MgUserText1.setText("");
+        MgPassText1.setText("");
+        MgUserText1.grabFocus(); 
+    }//GEN-LAST:event_CancelButton2ActionPerformed
+
+    private void ExitButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButton1ActionPerformed
+        // TODO add your handling code here:
+        frame = new JFrame("Exit");
+        if(JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit?", "A&Y Inventory Management System", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_ExitButton1ActionPerformed
+    private void closeMe(){
+        WindowEvent meClose = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(meClose);
+    }
     /**
      * @param args the command line arguments
      */
@@ -302,6 +567,20 @@ public class MovieLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button1;
     private javax.swing.JButton Button2;
+    private javax.swing.JToggleButton CancelButton;
+    private javax.swing.JToggleButton CancelButton2;
+    private javax.swing.JToggleButton ExitButton;
+    private javax.swing.JToggleButton ExitButton1;
+    private javax.swing.JToggleButton LoginButton;
+    private javax.swing.JToggleButton LoginButton1;
+    private javax.swing.JLabel MgPassLabel;
+    private javax.swing.JLabel MgPassLabel1;
+    private javax.swing.JPasswordField MgPassText;
+    private javax.swing.JPasswordField MgPassText1;
+    private javax.swing.JLabel MgUserLabel;
+    private javax.swing.JLabel MgUserLabel1;
+    private javax.swing.JTextField MgUserText;
+    private javax.swing.JTextField MgUserText1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
