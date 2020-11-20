@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 /**
  *
@@ -34,6 +35,9 @@ public class Movie_Rental {
         String password="Abdo123";
         
         
+        int Payment_ID;
+        float Discount;
+        Scanner input = new Scanner(System.in);
         
         
         //Codes for reading data from database  
@@ -48,16 +52,20 @@ public class Movie_Rental {
           myresShop = mystatShop.executeQuery(query);
           
           while(myresShop.next()){
-              int Payment_ID = myresShop.getInt(1);
-              System.out.println("\t"+Payment_ID);
+              Payment_ID = myresShop.getInt(1);
+              Discount=myresShop.getFloat(2);
+              System.out.println("\t"+Payment_ID+"\t"+Discount);
           }
         }
         catch(SQLException e){
             e.printStackTrace();
         }
         
-        
-        
+        //code for writing to database
+        /*System.out.println("Please enter ID");
+        Payment_ID = input.nextInt();
+        input.nextLine();
+        System.out.println("Enter Discount");*/
         
         
         
