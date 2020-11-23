@@ -76,14 +76,16 @@ public class MovieLogin extends javax.swing.JFrame {
         LoginButton = new javax.swing.JToggleButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("InvMangSys");
         setBackground(new java.awt.Color(60, 107, 127));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(252, 254, 221));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Welcome to A&Y Inventory Management System", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 36))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(23, 37, 42));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Welcome to A&Y Inventory Management System", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 36), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,8 +100,9 @@ public class MovieLogin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 810, 80));
 
-        jPanel2.setBackground(new java.awt.Color(252, 254, 221));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Login", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 36))); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(23, 37, 42));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Login", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 36), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         Button1.setText("Manager");
         Button1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -134,16 +137,18 @@ public class MovieLogin extends javax.swing.JFrame {
 
         jPanel8.setLayout(new java.awt.CardLayout());
 
-        jPanel10.setBackground(new java.awt.Color(130, 42, 74));
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Sales Man Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 18))); // NOI18N
+        jPanel10.setBackground(new java.awt.Color(23, 37, 42));
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Sales Man Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         MgUserText1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        MgPassLabel1.setForeground(new java.awt.Color(255, 255, 255));
         MgPassLabel1.setText("Password:");
         MgPassLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         MgPassText1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        MgUserLabel1.setForeground(new java.awt.Color(255, 255, 255));
         MgUserLabel1.setText("Username:");
         MgUserLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -213,8 +218,8 @@ public class MovieLogin extends javax.swing.JFrame {
 
         jPanel8.add(jPanel10, "card3");
 
-        jPanel9.setBackground(new java.awt.Color(130, 42, 74));
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Manager Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 18))); // NOI18N
+        jPanel9.setBackground(new java.awt.Color(23, 37, 42));
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Manager Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 18), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel9.setForeground(new java.awt.Color(240, 240, 240));
 
         MgUserText.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -335,6 +340,7 @@ public class MovieLogin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 810, 390));
 
+        jPanel3.setBackground(new java.awt.Color(23, 37, 42));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -350,6 +356,7 @@ public class MovieLogin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 930, 30));
 
+        jPanel6.setBackground(new java.awt.Color(23, 37, 42));
         jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -364,6 +371,21 @@ public class MovieLogin extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 930, -1));
+
+        jPanel4.setBackground(new java.awt.Color(60, 107, 127));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 960, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 670, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 670));
 
         pack();
         setLocationRelativeTo(null);
@@ -413,8 +435,11 @@ public class MovieLogin extends javax.swing.JFrame {
                     break;
                 }
             }
-            if(log==0)
+            if(log==0){
                 closeMe();
+                new ManagerView().setVisible(true);
+                this.setVisible(false);
+            }
             else{
                 JOptionPane.showMessageDialog(null, "Connection Failed", "Login System", JOptionPane.ERROR_MESSAGE);
                 MgUserText.setText("");
@@ -461,8 +486,11 @@ public class MovieLogin extends javax.swing.JFrame {
                     break;
                 }
             }
-            if(log==0)
+            if(log==0){
                 closeMe();
+                new SlaesManView().setVisible(true);
+                this.setVisible(false);                
+            }
             else{
                 JOptionPane.showMessageDialog(null, "Connection Failed", "Login System", JOptionPane.ERROR_MESSAGE);
                 MgUserText1.setText("");
@@ -550,6 +578,7 @@ public class MovieLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
